@@ -4,7 +4,7 @@
 class Screen
 {
 public:
-	int run(sf::RenderWindow &window) {};
+	virtual int run(sf::RenderWindow &window) = 0;
 
 };
 
