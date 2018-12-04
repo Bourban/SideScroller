@@ -16,11 +16,23 @@ int GameScreen::run(sf::RenderWindow & window)
 				window.close();
 		}
 
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+			return 0;
+
+		}
+
+
 		window.clear();
 		window.draw(shape);
 		window.display();
 	}
 	return 0;
+}
+
+void GameScreen::update(sf::Time delta)
+{
+
+
 }
 
 GameScreen::GameScreen()

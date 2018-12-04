@@ -19,7 +19,7 @@ int main() {
 	screens.push_back(&game);
 
 	//Loop contingent on each screen's run function returning a valid value
-	while (currentScreen >= 0 && currentScreen <= screens.size)
+	while (currentScreen >= 0 && currentScreen <= screens.size())
 	{
 		currentScreen = screens[currentScreen]->run(window);
 
