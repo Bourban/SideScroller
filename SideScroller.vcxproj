@@ -153,11 +153,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameScreen.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Commands.h" />
     <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Screens.h" />

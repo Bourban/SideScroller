@@ -7,6 +7,8 @@ int GameScreen::run(sf::RenderWindow & window)
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Blue);
 
+	inputHandler.bind();
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -18,8 +20,15 @@ int GameScreen::run(sf::RenderWindow & window)
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
 			return 0;
-
 		}
+
+		Command* command = inputHandler.handleInput();
+		if (command)
+		{
+			command->execute(shape);
+		}
+
+		update(elapsed);
 
 
 		window.clear();
@@ -31,7 +40,9 @@ int GameScreen::run(sf::RenderWindow & window)
 
 void GameScreen::update(sf::Time delta)
 {
+	elapsed = clock.restart();
 
+	
 
 }
 

@@ -22,5 +22,7 @@ private:
 	sf::Clock clock;
 	sf::Time elapsed;
 
+	InputHandler inputHandler;
+
 };
 
