@@ -152,16 +152,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="Character.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MenuScreen.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Screens.h" />
   </ItemGroup>
