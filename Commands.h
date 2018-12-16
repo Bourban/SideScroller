@@ -1,22 +1,41 @@
 #pragma once
 
-#include "SFML\Graphics\CircleShape.hpp"
-#include "SFML\System\Vector2.hpp"
+#include "Character.h"
 
 class Command 
 {
 public:
 	virtual ~Command(){}
-	virtual void execute(sf::CircleShape &shape) = 0;
+	virtual void execute(Character &target) = 0;
 };
 
 
-class MoveCommand : public Command
+class MoveLeftCommand : public Command
 {
 public:
-	virtual void execute(sf::CircleShape &shape) 
+	virtual void execute(Character &target)
 	{
 		//this should be a method in actor class 
-		shape.move(0,0);
+		target.moveLeft();
+	};
+};
+
+class MoveRightCommand : public Command
+{
+public:
+	virtual void execute(Character &target)
+	{
+		//this should be a method in actor class 
+		target.moveRight();
+	};
+};
+
+class AttackCommand : public Command
+{
+public:
+	virtual void execute(Character &target)
+	{
+		//this should be a method in actor class 
+		target.attack();
 	};
 };

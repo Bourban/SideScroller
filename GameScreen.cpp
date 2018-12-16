@@ -1,6 +1,11 @@
 #include "GameScreen.h"
 
 
+GameScreen::GameScreen() 
+{
+	player = Player();
+}
+
 
 int GameScreen::run(sf::RenderWindow & window)
 {
@@ -22,14 +27,7 @@ int GameScreen::run(sf::RenderWindow & window)
 			return 0;
 		}
 
-		Command* command = inputHandler.handleInput();
-		if (command)
-		{
-			command->execute(shape);
-		}
-
 		update(elapsed);
-
 
 		window.clear();
 		window.draw(shape);
@@ -40,14 +38,15 @@ int GameScreen::run(sf::RenderWindow & window)
 
 void GameScreen::update(sf::Time delta)
 {
-	elapsed = clock.restart();
+	player.updateTime(delta);
 
+	Command* command = inputHandler.handleInput();
+	if (command)
+	{
+		command->execute(player);
+	}
 	
-
-}
-
-GameScreen::GameScreen()
-{
+	elapsed = clock.restart();
 }
 
 

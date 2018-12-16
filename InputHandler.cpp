@@ -14,11 +14,17 @@ Command* InputHandler::handleInput() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		return keyboardD;
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		return keyboardSpace;
+	}
+
 	return NULL;
 }
 
 void InputHandler::bind()
 {
-	keyboardW = new MoveCommand();
+	keyboardA = new MoveLeftCommand();
+	keyboardD = new MoveRightCommand();
 
+	keyboardSpace = new AttackCommand();
 }

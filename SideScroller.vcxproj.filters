@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{c74835ee-b611-48bc-b8ea-9f2ebd42f4eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Sprites">
+      <UniqueIdentifier>{6e6cd22d-9585-41d4-9be1-52bf98f00874}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

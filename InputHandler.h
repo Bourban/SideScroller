@@ -15,5 +15,6 @@ private:
 	Command* keyboardA;
 	Command* keyboardS;
 	Command* keyboardD;
+	Command* keyboardSpace;
 };
 

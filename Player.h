@@ -6,5 +6,8 @@ class Player :
 public:
 	Player();
 	~Player();
+
+private:
+	sf::Time* elapsed;
 };
 

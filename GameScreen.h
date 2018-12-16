@@ -1,6 +1,8 @@
 #pragma once
 #include "Screen.h"
 #include "SFML/Graphics.hpp"
+#include "Player.h"
+
 class GameScreen :
 	public Screen
 {
@@ -23,6 +25,8 @@ private:
 	sf::Time elapsed;
 
 	InputHandler inputHandler;
+
+	Player player;
 
 };
 
