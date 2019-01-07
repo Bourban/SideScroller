@@ -13,18 +13,18 @@ Character::~Character()
 
 void Character::updateTime(sf::Time &time)
 {
-	this->elapsed = time;
+	this->m_elapsed = &time;
 }
 
 void Character::moveLeft()
 {
-	this->move(-5 * elapsed.asSeconds(), 0);
+	this->move(-5 * m_elapsed->asSeconds(), 0);
 	std::cout << "Left" << "\n";
 }
 
 void Character::moveRight()
 {
-	this->move(5 * elapsed.asSeconds(), 0);
+	this->move(5 * m_elapsed->asSeconds(), 0);
 	std::cout << "Right" << "\n";
 }
 

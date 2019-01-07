@@ -46,6 +46,7 @@ void GameScreen::update(sf::Time delta)
 		command->execute(player);
 	}
 	
+
 	elapsed = clock.restart();
 }
 

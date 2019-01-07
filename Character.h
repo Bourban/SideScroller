@@ -19,6 +19,10 @@ public:
 	void attack();
 
 protected:
-	sf::Time elapsed;
+
+	sf::Time* m_elapsed;
+
+	float m_deltaY;
+	bool m_isOnGroud;
 };
 
