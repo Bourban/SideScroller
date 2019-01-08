@@ -38,14 +38,13 @@ int GameScreen::run(sf::RenderWindow & window)
 
 void GameScreen::update(sf::Time delta)
 {
-	player.updateTime(delta);
+	player.update(delta);
 
 	Command* command = inputHandler.handleInput();
 	if (command)
 	{
 		command->execute(player);
 	}
-	
 
 	elapsed = clock.restart();
 }

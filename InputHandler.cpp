@@ -23,8 +23,9 @@ Command* InputHandler::handleInput() {
 
 void InputHandler::bind()
 {
+	keyboardW = new JumpCommand();
 	keyboardA = new MoveLeftCommand();
 	keyboardD = new MoveRightCommand();
 
-	keyboardSpace = new AttackCommand();
+	keyboardSpace = new JumpCommand();
 }

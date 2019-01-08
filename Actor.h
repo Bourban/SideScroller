@@ -1,7 +1,6 @@
 #pragma once
 
 #include "SFML/Graphics/Sprite.hpp"
-#include "SFML/Graphics/RectangleShape.hpp"
 
 //base class for all custom classes, has a rectangle shape included so that this class can be used
 //in collision checks
@@ -11,10 +10,11 @@ public:
 	Actor();
 	virtual ~Actor() = 0;
 	
-	sf::RectangleShape getRect();
+	sf::FloatRect getRect() const;
 
-private:
-	sf::RectangleShape box;
-
+protected:
+	sf::FloatRect m_box;
+	int m_spriteHeight;
+	int m_spriteWidth;
 };
 

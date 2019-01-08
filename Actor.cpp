@@ -11,7 +11,7 @@ Actor::~Actor()
 {
 }
 
-sf::RectangleShape Actor::getRect()
+sf::FloatRect Actor::getRect() const
 {
-	return this->box;
+	return m_box;
 }

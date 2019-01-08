@@ -39,3 +39,13 @@ public:
 		target.attack();
 	};
 };
+
+class JumpCommand : public Command
+{
+public:
+	virtual void execute(Character &target)
+	{
+		//this should be a method in actor class 
+		target.jump();
+	};
+};
