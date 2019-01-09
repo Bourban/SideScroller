@@ -2,6 +2,7 @@
 #include "Screen.h"
 #include "SFML/Graphics.hpp"
 #include "Player.h"
+#include "Platform.h"
 
 class GameScreen :
 	public Screen
@@ -11,6 +12,8 @@ public:
 	virtual int run(sf::RenderWindow &window);
 
 	void update(sf::Time delta);
+	void loadContent();
+
 
 	GameScreen();
 	~GameScreen();
@@ -27,6 +30,9 @@ private:
 	InputHandler inputHandler;
 
 	Player player;
+	Platform grassington;
 
+	sf::Texture grassTexture;
+	sf::Texture playerTexture;
 };
 

@@ -1,18 +1,23 @@
 #include "Platform.h"
 
 
-Platform::Platform(int height, int width, sf::Texture &texture)
+Platform::Platform(int x, int y,int width, int height, sf::Texture &texture)
 {
 	m_box.height = height;
 	m_box.width = width;
 
-	m_box.top = this->getPosition().y;
-	m_box.left = this->getPosition().x;
+	this->setPosition(x, y);
+
+	m_box.top = y;
+	m_box.left = x;
 
 	this->setTexture(texture);
 
 }
 
+Platform::Platform()
+{
+}
 
 Platform::~Platform()
 {

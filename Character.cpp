@@ -4,6 +4,11 @@
 
 Character::Character()
 {
+	m_spriteHeight = 33;
+	m_spriteWidth = 22;
+
+	m_bottom.width = m_spriteWidth;
+	m_bottom.height = 5;
 }
 
 
@@ -17,6 +22,9 @@ void Character::update(sf::Time &time)
 	this->m_elapsed = &time;
 
 	this->move(0, -(m_deltaY * m_elapsed->asSeconds()));
+
+	m_bottom.left = this->getPosition().x;
+	m_bottom.top = this->getPosition().y + (m_spriteHeight / 2);
 
 	this->handleFallingSpeed();
 	this->handleSpriteFacing();
@@ -42,7 +50,7 @@ void Character::handleFallingSpeed()
 		};
 	}
 	else {
-		this->m_elapsed = 0;
+		this->m_deltaY = 0;
 	}
 }
 
