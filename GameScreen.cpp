@@ -19,8 +19,8 @@ int GameScreen::run(sf::RenderWindow & window)
 	player = Player();
 	player.setTexture(playerTexture);
 	player.setTextureRect(sf::IntRect(264, 0, 22, 33));
-	grassington = Platform(0, 520, 800, 200, grassTexture);
-	player.setPosition(400, 200);
+	platforms.push_back(Platform(0, 520, 800, 200, grassTexture));
+	player.setPosition(400, 0);
 
 	inputHandler.bind();
 
@@ -41,7 +41,10 @@ int GameScreen::run(sf::RenderWindow & window)
 		player.update(elapsed);
 
 		window.clear(sf::Color::Cyan);
-		window.draw(grassington);
+		for (int i = 0; i < platforms.size(); i++)
+		{
+			window.draw(platforms[i]);
+		}
 		window.draw(player);
 		window.display();
 	}
@@ -58,8 +61,15 @@ void GameScreen::update(sf::Time delta)
 		command->execute(player);
 	}
 
-	player.platformCollisionCheck(grassington);
-
+	
+	for (int i = 0; i < platforms.size(); i++)
+	{
+		bool shouldBreak = player.platformCollisionCheck(platforms[i]);
+		if (shouldBreak) {
+			break;
+		}
+		
+	}
 
 	elapsed = clock.restart();
 }

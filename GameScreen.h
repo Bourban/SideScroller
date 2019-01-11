@@ -24,13 +24,15 @@ private:
 
 	bool isGameOver;
 
+	std::vector<Platform> platforms;
+
 	sf::Clock clock;
 	sf::Time elapsed;
 
 	InputHandler inputHandler;
 
 	Player player;
-	Platform grassington;
+	//Platform grassington;
 
 	sf::Texture grassTexture;
 	sf::Texture playerTexture;

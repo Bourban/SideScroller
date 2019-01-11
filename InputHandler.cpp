@@ -2,6 +2,9 @@
 
 Command* InputHandler::handleInput() {
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		return keyboardSpace;
+	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 		return keyboardW;
 	}
@@ -14,10 +17,7 @@ Command* InputHandler::handleInput() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		return keyboardD;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-		return keyboardSpace;
-	}
-
+	
 	return NULL;
 }
 

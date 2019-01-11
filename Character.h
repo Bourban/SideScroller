@@ -16,7 +16,7 @@ public:
 	void handleSpriteFacing();
 	void handleFallingSpeed();
 
-	void platformCollisionCheck(Platform &platform);
+	bool platformCollisionCheck(Platform &platform);
 
 	void moveLeft();
 	void moveRight();

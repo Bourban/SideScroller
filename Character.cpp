@@ -8,7 +8,7 @@ Character::Character()
 	m_spriteWidth = 22;
 
 	m_bottom.width = m_spriteWidth;
-	m_bottom.height = 5;
+	m_bottom.height = 10;
 }
 
 
@@ -24,7 +24,7 @@ void Character::update(sf::Time &time)
 	this->move(0, -(m_deltaY * m_elapsed->asSeconds()));
 
 	m_bottom.left = this->getPosition().x;
-	m_bottom.top = this->getPosition().y + (m_spriteHeight / 2);
+	m_bottom.top = this->getPosition().y + m_spriteHeight;
 
 	this->handleFallingSpeed();
 	this->handleSpriteFacing();
@@ -44,21 +44,31 @@ void Character::handleSpriteFacing()
 void Character::handleFallingSpeed()
 {
 	if (!m_isOnGroud) {
-		if (this->m_deltaY > -500)
+		if (this->m_deltaY > -200)
 		{
-			m_deltaY -= 1000 * m_elapsed->asSeconds();
-		};
+			m_deltaY -= 400 * m_elapsed->asSeconds();
+		}
+		else {
+			m_deltaY = -200;
+		}
 	}
 	else {
 		this->m_deltaY = 0;
 	}
 }
 
-void Character::platformCollisionCheck(Platform & platform)
+bool Character::platformCollisionCheck(Platform & platform)
 {
+	//Needs to be updated - this will only work for checking one platform.
+	//Maybe change to a bool and return true or false to break the for loop as required
 	if (m_bottom.intersects(platform.getRect()) && m_deltaY <=0) 
 	{
 		m_isOnGroud = true;
+		return true;
+	}
+	else {
+		m_isOnGroud = false;
+		return false;
 	}
 }
 
@@ -77,7 +87,7 @@ void Character::moveRight()
 void Character::jump()
 {
 	if (m_isOnGroud) {
-		m_deltaY = 550;
+		m_deltaY = 450;
 		m_isOnGroud = false;
 	}
 }

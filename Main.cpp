@@ -8,7 +8,7 @@ int main() {
 	const int WINDOW_WIDTH = 1280;
 
 	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SideScroller!");
-
+	window.setFramerateLimit(60);
 	//vector (list) of screen objects which contain each menu screen, level, etc.
 	std::vector<Screen*> screens;
 
