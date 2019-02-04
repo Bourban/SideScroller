@@ -16,11 +16,9 @@ int GameScreen::run(sf::RenderWindow & window)
 {
 	loadContent();
 	
-	player = Player();
-	player.setTexture(playerTexture);
-	player.setTextureRect(sf::IntRect(264, 0, 22, 33));
+	player = Player(playerTexture, 400, 0);
+
 	platforms.push_back(Platform(0, 520, 800, 200, grassTexture));
-	player.setPosition(400, 0);
 
 	inputHandler.bind();
 
@@ -38,15 +36,8 @@ int GameScreen::run(sf::RenderWindow & window)
 		}
 
 		update(elapsed);
-		player.update(elapsed);
 
-		window.clear(sf::Color::Cyan);
-		for (int i = 0; i < platforms.size(); i++)
-		{
-			window.draw(platforms[i]);
-		}
-		window.draw(player);
-		window.display();
+		render(window);
 	}
 	return 0;
 }
@@ -68,10 +59,20 @@ void GameScreen::update(sf::Time delta)
 		if (shouldBreak) {
 			break;
 		}
-		
 	}
 
 	elapsed = clock.restart();
+}
+
+void GameScreen::render(sf::RenderWindow & window)
+{
+	window.clear(sf::Color::Cyan);
+	for (int i = 0; i < platforms.size(); i++)
+	{
+		window.draw(platforms[i]);
+	}
+	window.draw(player);
+	window.display();
 }
 
 

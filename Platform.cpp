@@ -3,7 +3,7 @@
 
 Platform::Platform(int x, int y,int width, int height, sf::Texture &texture)
 {
-	m_box.height = height;
+	m_box.height = 10;
 	m_box.width = width;
 
 	this->setPosition(x, y);

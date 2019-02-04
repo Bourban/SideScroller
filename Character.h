@@ -1,6 +1,7 @@
 #pragma once
 #include "Actor.h"
 #include "SFML\System\Clock.hpp"
+#include "SFML\Graphics\Texture.hpp"
 #include "Platform.h"
 
 //Base class of Player and Enemy for use with command method calls
@@ -9,6 +10,7 @@ class Character :
 	public Actor
 {
 public:
+	Character(sf::Texture &texture, int x, int y);
 	Character();
 	~Character();
 
@@ -27,6 +29,7 @@ public:
 protected:
 
 	sf::Time* m_elapsed;
+	sf::Texture* m_texture;
 	sf::FloatRect m_bottom;
 
 	float m_deltaY;

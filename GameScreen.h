@@ -12,6 +12,7 @@ public:
 	virtual int run(sf::RenderWindow &window);
 
 	void update(sf::Time delta);
+	void render(sf::RenderWindow & window);
 	void loadContent();
 
 
