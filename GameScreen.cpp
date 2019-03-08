@@ -16,7 +16,7 @@ int GameScreen::run(sf::RenderWindow & window)
 {
 	loadContent();
 	
-	player = Player(playerTexture, 400, 0);
+	player = Player(playerTexture, 12, 1, 400, 0);
 
 	platforms.push_back(Platform(0, 520, 800, 200, grassTexture));
 

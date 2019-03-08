@@ -1,19 +1,19 @@
 #pragma once
 
-#include "Character.h"
+#include "StateCharacter.h"
 
 class Command 
 {
 public:
 	virtual ~Command(){}
-	virtual void execute(Character &target) = 0;
+	virtual void execute(StateCharacter &target) = 0;
 };
 
 
 class MoveLeftCommand : public Command
 {
 public:
-	virtual void execute(Character &target)
+	virtual void execute(StateCharacter &target)
 	{
 		//this should be a method in actor class 
 		target.moveLeft();
@@ -23,7 +23,7 @@ public:
 class MoveRightCommand : public Command
 {
 public:
-	virtual void execute(Character &target)
+	virtual void execute(StateCharacter &target)
 	{
 		//this should be a method in actor class 
 		target.moveRight();
@@ -33,7 +33,7 @@ public:
 class AttackCommand : public Command
 {
 public:
-	virtual void execute(Character &target)
+	virtual void execute(StateCharacter &target)
 	{
 		//this should be a method in actor class 
 		target.attack();
@@ -43,7 +43,7 @@ public:
 class JumpCommand : public Command
 {
 public:
-	virtual void execute(Character &target)
+	virtual void execute(StateCharacter &target)
 	{
 		//this should be a method in actor class 
 		target.jump();

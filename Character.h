@@ -15,8 +15,6 @@ public:
 	~Character();
 
 	void update(sf::Time &time);
-	void handleSpriteFacing();
-	void handleFallingSpeed();
 
 	bool platformCollisionCheck(Platform &platform);
 
@@ -28,9 +26,12 @@ public:
 
 protected:
 
-	sf::Time* m_elapsed;
-	sf::Texture* m_texture;
+	sf::Time* m_pElapsed;
+	sf::Texture* m_pTexture;
 	sf::FloatRect m_bottom;
+
+	void handleSpriteFacing();
+	void handleFallingSpeed();
 
 	float m_deltaY;
 	bool m_isOnGroud;

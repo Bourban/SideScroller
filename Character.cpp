@@ -4,8 +4,8 @@
 
 Character::Character(sf::Texture &texture, int x, int y)
 {
-	this->m_texture = &texture;
-	this->setTexture(*(m_texture));
+	this->m_pTexture = &texture;
+	this->setTexture (texture);
 
 	this->setTextureRect(sf::IntRect(264, 0, 22, 33));
 
@@ -44,9 +44,9 @@ Character::~Character()
 void Character::update(sf::Time &time)
 {
 	//this doesn't need to happen every frame, move to a constructor or make the timer accessible from here
-	this->m_elapsed = &time;
+	this->m_pElapsed = &time;
 
-	this->move(0, -(m_deltaY * m_elapsed->asSeconds()));
+	this->move(0, -(m_deltaY * m_pElapsed->asSeconds()));
 
 	//replace with window height -20 for scalability
 	if(this->getPosition().y > 600)
@@ -79,7 +79,7 @@ void Character::handleFallingSpeed()
 		if (this->m_deltaY > -400)
 		{
 			//exactly 1 second before we start falling
-			m_deltaY -= 450 * m_elapsed->asSeconds();
+			m_deltaY -= 450 * m_pElapsed->asSeconds();
 		}
 		else {
 			m_deltaY = -400;
@@ -105,13 +105,13 @@ bool Character::platformCollisionCheck(Platform & platform)
 
 void Character::moveLeft()
 {
-	this->move(-300 * m_elapsed->asSeconds(), 0);
+	this->move(-300 * m_pElapsed->asSeconds(), 0);
 	m_isFacingLeft = true;
 }
 
 void Character::moveRight()
 {
-	this->move(300 * m_elapsed->asSeconds(), 0);
+	this->move(300 * m_pElapsed->asSeconds(), 0);
 	m_isFacingLeft = false;
 }
 

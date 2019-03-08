@@ -16,5 +16,11 @@ protected:
 	sf::FloatRect m_box;
 	int m_spriteHeight;
 	int m_spriteWidth;
+	int m_spriteRows;
+	int m_spriteCols;
+
+	int m_frameHeight;
+	int m_frameWidth;
+
 };
 
