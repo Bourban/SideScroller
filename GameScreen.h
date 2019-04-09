@@ -1,8 +1,6 @@
 #pragma once
 #include "Screen.h"
 #include "SFML/Graphics.hpp"
-#include "Player.h"
-#include "Platform.h"
 
 class GameScreen :
 	public Screen
@@ -21,21 +19,16 @@ public:
 
 private:
 
+	sf::Texture playerTexture;
+	Character player;
+
 	const float TIME_PER_UPDATE = 0.016f;
 
 	bool isGameOver;
-
-	std::vector<Platform> platforms;
 
 	sf::Clock clock;
 	sf::Time elapsed;
 
 	InputHandler inputHandler;
-
-	Player player;
-	//Platform grassington;
-
-	sf::Texture grassTexture;
-	sf::Texture playerTexture;
 };
 

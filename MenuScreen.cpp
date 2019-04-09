@@ -4,11 +4,8 @@
 
 int MenuScreen::run(sf::RenderWindow & window)
 {
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
 
-	window.setFramerateLimit(60.0f);
-
+	
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -23,13 +20,25 @@ int MenuScreen::run(sf::RenderWindow & window)
 		
 		}
 
-		window.clear();
-		window.draw(shape);
-		window.display();
-	}
+		update();
+		render(window);
 
+	}
+	 
 	return -1;
 }
+
+void MenuScreen::update()
+{
+}
+
+void MenuScreen::render(sf::RenderWindow &window) {
+
+	window.clear(sf::Color::Blue);
+	window.display();
+
+}
+
 
 MenuScreen::MenuScreen()
 {

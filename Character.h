@@ -1,40 +1,41 @@
 #pragma once
-#include "Actor.h"
-#include "SFML\System\Clock.hpp"
-#include "SFML\Graphics\Texture.hpp"
-#include "Platform.h"
 
-//Base class of Player and Enemy for use with command method calls
+#include <SFML\Graphics\Sprite.hpp>
+#include <SFML\System\Time.hpp>
 
-class Character :
-	public Actor
-{
+class Character : public sf::Sprite {
+
 public:
-	Character(sf::Texture &texture, int x, int y);
 	Character();
+
+	Character(sf::Time &time, sf::Texture &texture);
+
 	~Character();
 
-	void update(sf::Time &time);
-
-	bool platformCollisionCheck(Platform &platform);
-
+	void jump();
 	void moveLeft();
 	void moveRight();
-	void jump();
-
 	void attack();
 
-protected:
+	void update();
 
-	sf::Time* m_pElapsed;
-	sf::Texture* m_pTexture;
-	sf::FloatRect m_bottom;
+private:
+
+	enum State
+	{
+		idle,
+		moving,
+		attacking,
+		jumping
+	};
+
+	State currentState;
+
+	sf::Time* pElapsedTime;
+	sf::Vector2f spriteSize;
+
+	bool bIsFacingLeft;
 
 	void handleSpriteFacing();
-	void handleFallingSpeed();
 
-	float m_deltaY;
-	bool m_isOnGroud;
-	bool m_isFacingLeft;
 };
-
