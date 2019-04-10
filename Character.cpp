@@ -22,17 +22,15 @@ Character::~Character()
 
 void Character::jump()
 {
-	if (currentState != jumping) {
-		
-		//at the end of this block
-		//currentState = jumping;
+	if (!bIsJumping) {
+		deltaY = 500;
+		bIsJumping = true;
 	}
-	std::cout << "jump";
 }
 
 void Character::moveLeft()
 {
-	if (currentState == idle || currentState == moving) {
+	if (currentState != attacking) {
 		this->move(-300 * pElapsedTime->asSeconds(), 0);
 		bIsFacingLeft = true;
 		currentState = moving;
@@ -42,7 +40,7 @@ void Character::moveLeft()
 
 void Character::moveRight()
 {
-	if (currentState == idle || currentState == moving) {
+	if (currentState != attacking) {
 		this->move(300 * pElapsedTime->asSeconds(), 0);
 		bIsFacingLeft = false;
 		currentState = moving;
@@ -57,6 +55,16 @@ void Character::update()
 {
 	this->handleSpriteFacing();
 
+
+	if (bIsJumping) {
+		this->move(0, -(deltaY * pElapsedTime->asSeconds()));
+		if (deltaY > -450) {
+			deltaY -= 600 * pElapsedTime->asSeconds();
+		}
+	}
+
+	if (this->getPosition().y > 550)
+		bIsJumping = false;
 }
 
 void Character::handleSpriteFacing()

@@ -35,6 +35,9 @@ private:
 	sf::Vector2f spriteSize;
 
 	bool bIsFacingLeft;
+	bool bIsJumping;
+
+	float deltaY;
 
 	void handleSpriteFacing();
 
