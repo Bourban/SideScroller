@@ -14,6 +14,8 @@ Character::Character(sf::Time & time, sf::Texture & texture) : Sprite(texture)
 	this->spriteSize = sf::Vector2f(512, 512);
 
 	this->setOrigin(this->spriteSize / 2.0f);
+
+	this->bIsJumping = false;
 }
 
 Character::~Character()

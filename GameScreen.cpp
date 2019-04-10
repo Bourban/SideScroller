@@ -3,7 +3,7 @@
 
 GameScreen::GameScreen() 
 {
-	
+	currentBoi = 0;
 }
 
 void GameScreen::loadContent() 
@@ -16,22 +16,33 @@ int GameScreen::run(sf::RenderWindow & window)
 	loadContent();
 	inputHandler.bind();
 
-	player = Character(elapsed, playerTexture);
-	player.setPosition(400, 400);
+	theBois.push_back(Character(elapsed, playerTexture));
+	theBois.push_back(Character(elapsed, playerTexture));
 
+	for (int i = 0; i < theBois.size(); i++)
+	{
+		theBois[i].setPosition((i + 1) * 200, 400);
+	}
 
 	while (window.isOpen())
 	{
 		sf::Event event;
 		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
+			switch (event.type) {
+			case sf::Event::Closed:
 				window.close();
-		}
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-			return 0;
-		}
+				break;
+			case sf::Event::KeyPressed:
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+					return 0;
+				}
+				break;
+			case sf::Event::KeyReleased:
+				if (event.key.code == sf::Keyboard::E) {
+					currentBoi++;
+					currentBoi = currentBoi % theBois.size();
+				}
+			}
 
 		update(elapsed);
 
@@ -42,12 +53,17 @@ int GameScreen::run(sf::RenderWindow & window)
 
 void GameScreen::update(sf::Time delta)
 {
-	player.update();
+
+	for (int i = 0; i < theBois.size(); i++)
+	{
+		theBois[i].update();
+	}
+
 
 	Command* command = inputHandler.handleInput();
 	if (command)
 	{
-		command->execute(player);
+		command->execute(theBois[currentBoi]);
 	}
 
 	elapsed = clock.restart();
@@ -56,7 +72,10 @@ void GameScreen::update(sf::Time delta)
 void GameScreen::render(sf::RenderWindow & window)
 {
 	window.clear(sf::Color::Cyan);
-	window.draw(player);
+	for (int i = 0; i < theBois.size(); i++)
+	{
+		window.draw(theBois[i]);
+	}
 	window.display();
 }
 

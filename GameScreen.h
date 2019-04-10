@@ -20,7 +20,9 @@ public:
 private:
 
 	sf::Texture playerTexture;
-	Character player;
+
+	int currentBoi;
+	std::vector<Character> theBois;
 
 	const float TIME_PER_UPDATE = 0.016f;
 
