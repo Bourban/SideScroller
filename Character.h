@@ -2,6 +2,8 @@
 
 #include <SFML\Graphics\Sprite.hpp>
 #include <SFML\System\Time.hpp>
+#include <SFML\Graphics\Rect.hpp>
+#include "StaticObject.h"
 
 class Character : public sf::Sprite {
 
@@ -19,6 +21,11 @@ public:
 
 	void update();
 
+	bool platformCollisionCheck(sf::IntRect &other);
+	void setIsJumping(bool &value);
+
+	sf::Vector2f getSpriteSize();
+
 private:
 
 	enum State
@@ -28,6 +35,8 @@ private:
 		attacking,
 		jumping
 	};
+
+	sf::IntRect bottomRect;
 
 	State currentState;
 

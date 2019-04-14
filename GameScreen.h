@@ -20,6 +20,9 @@ public:
 private:
 
 	sf::Texture playerTexture;
+	sf::Texture playerIndicatorTexture;
+
+	sf::Sprite playerIndicator;
 
 	int currentBoi;
 	std::vector<Character> theBois;

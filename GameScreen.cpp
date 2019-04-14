@@ -9,6 +9,7 @@ GameScreen::GameScreen()
 void GameScreen::loadContent() 
 {
 	playerTexture.loadFromFile("Assets/Sprites/pls.png");
+	playerIndicatorTexture.loadFromFile("Assets/Sprites/playerIndicator.png");
 }
 
 int GameScreen::run(sf::RenderWindow & window)
@@ -18,6 +19,8 @@ int GameScreen::run(sf::RenderWindow & window)
 
 	theBois.push_back(Character(elapsed, playerTexture));
 	theBois.push_back(Character(elapsed, playerTexture));
+
+	playerIndicator.setTexture(playerIndicatorTexture);
 
 	for (int i = 0; i < theBois.size(); i++)
 	{
@@ -59,6 +62,7 @@ void GameScreen::update(sf::Time delta)
 		theBois[i].update();
 	}
 
+	playerIndicator.setPosition(theBois[currentBoi].getPosition().x, theBois[currentBoi].getPosition().y  - (theBois[currentBoi].getSpriteSize().y / 2));
 
 	Command* command = inputHandler.handleInput();
 	if (command)
@@ -76,6 +80,9 @@ void GameScreen::render(sf::RenderWindow & window)
 	{
 		window.draw(theBois[i]);
 	}
+
+	window.draw(playerIndicator);
+
 	window.display();
 }
 

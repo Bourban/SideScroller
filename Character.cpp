@@ -1,4 +1,5 @@
 #include "Character.h"
+#include <SFML\Graphics\Texture.hpp>
 #include <iostream>
 
 Character::Character()
@@ -11,7 +12,7 @@ Character::Character(sf::Time & time, sf::Texture & texture) : Sprite(texture)
 
 	currentState = idle;
 
-	this->spriteSize = sf::Vector2f(512, 512);
+	this->spriteSize = (sf::Vector2f) texture.getSize();
 
 	this->setOrigin(this->spriteSize / 2.0f);
 
@@ -67,6 +68,26 @@ void Character::update()
 
 	if (this->getPosition().y > 550)
 		bIsJumping = false;
+}
+
+bool Character::platformCollisionCheck(sf::IntRect & other)
+{
+	if (this->bottomRect.intersects(other))
+		return true;
+	else
+		return false;
+}
+
+void Character::setIsJumping(bool &value)
+{
+	this->bIsJumping = value;
+}
+
+
+
+sf::Vector2f Character::getSpriteSize()
+{
+	return this->spriteSize;
 }
 
 void Character::handleSpriteFacing()
