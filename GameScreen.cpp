@@ -10,6 +10,9 @@ void GameScreen::loadContent()
 {
 	playerTexture.loadFromFile("Assets/Sprites/pls.png");
 	playerIndicatorTexture.loadFromFile("Assets/Sprites/playerIndicator.png");
+	barrelTexture.loadFromFile("Assets/Sprites/barrel.png");
+	grassTexture.loadFromFile("Assets/Sprites/Grass.png");
+
 }
 
 int GameScreen::run(sf::RenderWindow & window)
@@ -24,8 +27,11 @@ int GameScreen::run(sf::RenderWindow & window)
 
 	for (int i = 0; i < theBois.size(); i++)
 	{
-		theBois[i].setPosition((i + 1) * 200, 400);
+		theBois[i].setPosition((i + 1) * 200, 0);
 	}
+
+	objects.push_back(StaticObject(barrelTexture, sf::Vector2f(140, 200), sf::Vector2f(500, 400)));
+	objects.push_back(StaticObject(grassTexture, sf::Vector2f(300, 100), sf::Vector2f(700, 400)));
 
 	while (window.isOpen())
 	{
@@ -45,6 +51,14 @@ int GameScreen::run(sf::RenderWindow & window)
 					currentBoi++;
 					currentBoi = currentBoi % theBois.size();
 				}
+				if (event.key.code == sf::Keyboard::Q) {
+					currentBoi--;
+					if (currentBoi < 0) {
+						currentBoi = theBois.size() - 1;
+					}
+				}
+				break;
+
 			}
 
 		update(elapsed);
@@ -56,6 +70,24 @@ int GameScreen::run(sf::RenderWindow & window)
 
 void GameScreen::update(sf::Time delta)
 {
+
+#pragma region Collision Testing
+
+
+
+	for (int i = 0; i < theBois.size(); i++) {
+		for (int j = 0; j < objects.size(); j++) {
+			if (theBois[i].platformCollisionCheck(objects[j].getRect())) {
+				theBois[i].setIsJumping(false);
+				break;
+			}
+			else {
+				theBois[i].setIsJumping(true);
+			}
+		}
+	}
+
+#pragma endregion
 
 	for (int i = 0; i < theBois.size(); i++)
 	{
@@ -79,6 +111,13 @@ void GameScreen::render(sf::RenderWindow & window)
 	for (int i = 0; i < theBois.size(); i++)
 	{
 		window.draw(theBois[i]);
+		window.draw(theBois[i].pls);
+	}
+
+	for (int i = 0; i < objects.size(); i++)
+	{
+		window.draw(objects[i]);
+		window.draw(objects[i].pls);
 	}
 
 	window.draw(playerIndicator);

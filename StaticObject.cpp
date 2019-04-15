@@ -14,6 +14,11 @@ StaticObject::StaticObject(sf::Texture &texture, sf::Vector2f size, sf::Vector2f
 	this->rect.width = size.x;
 	this->rect.left = pos.x;
 	this->rect.top = pos.y;
+
+	pls.setOutlineColor(sf::Color::Black);
+	pls.setFillColor(sf::Color::Blue);
+	pls.setPosition(rect.left, rect.top);
+	pls.setSize(size);
 }
 
 

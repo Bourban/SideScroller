@@ -2,6 +2,7 @@
 #include "Screen.h"
 #include "SFML/Graphics.hpp"
 
+
 class GameScreen :
 	public Screen
 {
@@ -21,11 +22,15 @@ private:
 
 	sf::Texture playerTexture;
 	sf::Texture playerIndicatorTexture;
+	sf::Texture barrelTexture;
+	sf::Texture grassTexture;
 
 	sf::Sprite playerIndicator;
 
 	int currentBoi;
 	std::vector<Character> theBois;
+
+	std::vector<StaticObject> objects;
 
 	const float TIME_PER_UPDATE = 0.016f;
 

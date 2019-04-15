@@ -16,6 +16,9 @@ Character::Character(sf::Time & time, sf::Texture & texture) : Sprite(texture)
 
 	this->setOrigin(this->spriteSize / 2.0f);
 
+	this->bottomRect.height = 20;
+	this->bottomRect.width = 100;
+
 	this->bIsJumping = false;
 }
 
@@ -58,6 +61,11 @@ void Character::update()
 {
 	this->handleSpriteFacing();
 
+	this->bottomRect.left = this->getPosition().x - 30;
+	this->bottomRect.top = this->getPosition().y + 140;
+
+	pls.setPosition(bottomRect.left, bottomRect.top);
+	pls.setSize(sf::Vector2f(bottomRect.width, bottomRect.height));
 
 	if (bIsJumping) {
 		this->move(0, -(deltaY * pElapsedTime->asSeconds()));
@@ -66,19 +74,21 @@ void Character::update()
 		}
 	}
 
-	if (this->getPosition().y > 550)
+	if (this->getPosition().y > 550) {
 		bIsJumping = false;
+		this->setPosition(this->getPosition().x, 0);
+	}
 }
 
 bool Character::platformCollisionCheck(sf::IntRect & other)
 {
-	if (this->bottomRect.intersects(other))
+	if (this->bottomRect.intersects(other) && this->deltaY <= 0)
 		return true;
 	else
 		return false;
 }
 
-void Character::setIsJumping(bool &value)
+void Character::setIsJumping(bool value)
 {
 	this->bIsJumping = value;
 }

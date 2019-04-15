@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML\Graphics\Sprite.hpp>
 #include <SFML\Graphics\Rect.hpp>
+#include <SFML\Graphics\RectangleShape.hpp>
 class StaticObject :
 	public sf::Sprite
 {
@@ -12,7 +13,10 @@ public:
 
 	sf::IntRect getRect();
 
+	sf::RectangleShape pls;
+
 private:
+	
 	sf::IntRect rect;
 
 };
