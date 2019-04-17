@@ -13,8 +13,6 @@ public:
 
 	sf::IntRect getRect();
 
-	sf::RectangleShape pls;
-
 private:
 	
 	sf::IntRect rect;

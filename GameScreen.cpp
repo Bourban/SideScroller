@@ -27,11 +27,14 @@ int GameScreen::run(sf::RenderWindow & window)
 
 	for (int i = 0; i < theBois.size(); i++)
 	{
-		theBois[i].setPosition((i + 1) * 200, 0);
+		theBois[i].setPosition((i + 1) * 200, 400);
 	}
 
-	objects.push_back(StaticObject(barrelTexture, sf::Vector2f(140, 200), sf::Vector2f(500, 400)));
-	objects.push_back(StaticObject(grassTexture, sf::Vector2f(300, 100), sf::Vector2f(700, 400)));
+	objects.push_back(StaticObject(barrelTexture, sf::Vector2f(140, 200), sf::Vector2f(500, 420)));
+	objects.push_back(StaticObject(grassTexture, sf::Vector2f(300, 100), sf::Vector2f(900, 620)));
+	objects.push_back(StaticObject(grassTexture, sf::Vector2f(300, 100), sf::Vector2f(600, 620)));
+	objects.push_back(StaticObject(grassTexture, sf::Vector2f(300, 100), sf::Vector2f(300, 620)));
+	objects.push_back(StaticObject(grassTexture, sf::Vector2f(300, 100), sf::Vector2f(0, 620)));
 
 	while (window.isOpen())
 	{
@@ -108,16 +111,14 @@ void GameScreen::update(sf::Time delta)
 void GameScreen::render(sf::RenderWindow & window)
 {
 	window.clear(sf::Color::Cyan);
-	for (int i = 0; i < theBois.size(); i++)
-	{
-		window.draw(theBois[i]);
-		window.draw(theBois[i].pls);
+
+	for (auto sprite : objects) {
+		window.draw(sprite);
 	}
 
-	for (int i = 0; i < objects.size(); i++)
+	for (auto sprite: theBois)
 	{
-		window.draw(objects[i]);
-		window.draw(objects[i].pls);
+		window.draw(sprite);
 	}
 
 	window.draw(playerIndicator);
