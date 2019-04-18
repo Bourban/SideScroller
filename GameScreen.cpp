@@ -76,8 +76,6 @@ void GameScreen::update(sf::Time delta)
 
 #pragma region Collision Testing
 
-
-
 	for (int i = 0; i < theBois.size(); i++) {
 		for (int j = 0; j < objects.size(); j++) {
 			if (theBois[i].platformCollisionCheck(objects[j].getRect())) {
@@ -116,7 +114,7 @@ void GameScreen::render(sf::RenderWindow & window)
 		window.draw(sprite);
 	}
 
-	for (auto sprite: theBois)
+	for (auto sprite : theBois)
 	{
 		window.draw(sprite);
 	}

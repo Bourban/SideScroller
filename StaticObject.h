@@ -13,7 +13,7 @@ public:
 
 	sf::IntRect getRect();
 
-private:
+protected:
 	
 	sf::IntRect rect;
 

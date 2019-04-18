@@ -17,7 +17,6 @@ int MenuScreen::run(sf::RenderWindow & window)
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
 			return 1;
-		
 		}
 
 		update();
