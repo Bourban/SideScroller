@@ -4,7 +4,11 @@
 
 int MenuScreen::run(sf::RenderWindow & window)
 {
+	font.loadFromFile("Assets/Fonts/Baldur.ttf");
+	test.setFont(font);
 
+	test.setString("Press Enter to Proceed to the game");
+	test.setPosition(200, 200);
 	
 	while (window.isOpen())
 	{
@@ -34,6 +38,7 @@ void MenuScreen::update()
 void MenuScreen::render(sf::RenderWindow &window) {
 
 	window.clear(sf::Color::Blue);
+	window.draw(test);
 	window.display();
 
 }

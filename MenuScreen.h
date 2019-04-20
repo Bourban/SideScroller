@@ -16,5 +16,11 @@ public:
 
 	MenuScreen();
 	~MenuScreen();
+
+private:
+
+	sf::Font font;
+	sf::Text test;
+
 };
 
