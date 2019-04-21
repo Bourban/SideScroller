@@ -7,11 +7,14 @@ class InteractableObject :
 public:
 	InteractableObject();
 	InteractableObject(sf::Texture &texture, sf::Vector2f size, sf::Vector2f pos);
+	InteractableObject(sf::Texture &texture, sf::Vector2f size, sf::Vector2f pos, std::string text);
 	~InteractableObject();
 
 	sf::IntRect getInteractionRect();
+	std::string getText();
 
 private:
+	std::string text;
 	sf::IntRect interactionRect;
 };
 

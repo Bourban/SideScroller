@@ -7,7 +7,7 @@ int MenuScreen::run(sf::RenderWindow & window)
 	font.loadFromFile("Assets/Fonts/Baldur.ttf");
 	test.setFont(font);
 
-	test.setString("Press Enter to Proceed to the game");
+	test.setString("Press Enter to pay respects");
 	test.setPosition(200, 200);
 	
 	while (window.isOpen())
