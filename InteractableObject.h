@@ -10,6 +10,8 @@ public:
 	InteractableObject(sf::Texture &texture, sf::Vector2f size, sf::Vector2f pos, std::string text);
 	~InteractableObject();
 
+	void interact();
+
 	sf::IntRect getInteractionRect();
 	std::string getText();
 

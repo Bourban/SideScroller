@@ -30,6 +30,14 @@ public:
 	};
 };
 
+class InteractCommand : public Command 
+{
+	virtual void execute(Character & target) 
+	{
+		target.interact();
+	}
+};
+
 class AttackCommand : public Command
 {
 public:

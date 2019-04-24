@@ -11,6 +11,7 @@ public:
 	void bind();
 
 private:
+	Command* keyboardF;
 	Command* keyboardW;
 	Command* keyboardA;
 	Command* keyboardS;

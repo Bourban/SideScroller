@@ -17,7 +17,9 @@ Command* InputHandler::handleInput() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		return keyboardD;
 	}
-	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
+		return keyboardF;
+	}
 	return NULL;
 }
 
@@ -26,6 +28,7 @@ void InputHandler::bind()
 	keyboardW = new JumpCommand();
 	keyboardA = new MoveLeftCommand();
 	keyboardD = new MoveRightCommand();
+	keyboardF = new InteractCommand();
 
 	keyboardSpace = new JumpCommand();
 }

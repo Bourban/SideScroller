@@ -109,6 +109,7 @@ void GameScreen::update(sf::Time delta)
 		if (theBois[currentBoi].platformCollisionCheck(interactables[i].getInteractionRect())) 
 		{
 				this->interactText.setString(interactables[i].getText());
+				theBois[currentBoi].setOverlappingObject(interactables[i]);
 				isPlayerOverlapWithInteractable = true;
 				break;
 			}

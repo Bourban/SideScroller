@@ -57,6 +57,11 @@ void Character::attack()
 {
 }
 
+void Character::interact()
+{
+	overlappingObject->interact();
+}
+
 void Character::update()
 {
 	this->handleSpriteFacing();
@@ -86,6 +91,11 @@ bool Character::platformCollisionCheck(sf::IntRect & other)
 		return true;
 	else
 		return false;
+}
+
+void Character::setOverlappingObject(InteractableObject & other)
+{
+	overlappingObject = &other;
 }
 
 void Character::setIsJumping(bool value)

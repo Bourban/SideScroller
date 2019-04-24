@@ -5,6 +5,8 @@
 #include <SFML\Graphics\Rect.hpp>
 #include <SFML\Graphics\RectangleShape.hpp>
 #include "StaticObject.h"
+#include "InteractableObject.h"
+
 
 class Character : public sf::Sprite {
 
@@ -19,10 +21,13 @@ public:
 	void moveLeft();
 	void moveRight();
 	void attack();
+	void interact();
 
 	void update();
 
 	bool platformCollisionCheck(sf::IntRect &other);
+
+	void setOverlappingObject(InteractableObject & other);
 	void setIsJumping(bool value);
 
 	sf::Vector2f getSpriteSize();
@@ -53,4 +58,5 @@ private:
 
 	void handleSpriteFacing();
 
+	InteractableObject* overlappingObject;
 };

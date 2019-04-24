@@ -30,6 +30,11 @@ InteractableObject::~InteractableObject()
 {
 }
 
+void InteractableObject::interact()
+{
+	this->~InteractableObject();
+}
+
 sf::IntRect InteractableObject::getInteractionRect()
 {
 	return this->interactionRect;
