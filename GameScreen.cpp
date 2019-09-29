@@ -50,6 +50,7 @@ int GameScreen::run(sf::RenderWindow & window)
 
 #pragma endregion
 
+	//main game loop
 
 	while (window.isOpen())
 	{

@@ -3,6 +3,8 @@
 #include "Commands.h"
 #include "SFML\Window\Keyboard.hpp"
 
+//Class which handles player input -- binds keys to specific commands and checks for key presses
+
 class InputHandler
 {
 public: 

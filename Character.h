@@ -7,6 +7,7 @@
 #include "StaticObject.h"
 #include "InteractableObject.h"
 
+//Player Character class -- The player controls several of these and can switch between them easily with the Q and E keys
 
 class Character : public sf::Sprite {
 

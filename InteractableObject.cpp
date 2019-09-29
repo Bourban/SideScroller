@@ -25,7 +25,6 @@ InteractableObject::InteractableObject(sf::Texture & texture, sf::Vector2f size,
 	this->text = text;
 }
 
-
 InteractableObject::~InteractableObject()
 {
 }

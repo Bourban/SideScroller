@@ -25,10 +25,12 @@ Command* InputHandler::handleInput() {
 
 void InputHandler::bind()
 {
+	//movement
 	keyboardW = new JumpCommand();
 	keyboardA = new MoveLeftCommand();
 	keyboardD = new MoveRightCommand();
-	keyboardF = new InteractCommand();
 
+	//actions
+	keyboardF = new InteractCommand();
 	keyboardSpace = new JumpCommand();
 }

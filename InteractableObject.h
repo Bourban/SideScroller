@@ -1,6 +1,8 @@
 #pragma once
 #include "StaticObject.h"
 
+//Class which extends static object and allows player interaction
+
 class InteractableObject :
 	public StaticObject
 {

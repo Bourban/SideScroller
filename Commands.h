@@ -9,7 +9,6 @@ public:
 	virtual void execute(Character &target) = 0;
 };
 
-
 class MoveLeftCommand : public Command
 {
 public:
